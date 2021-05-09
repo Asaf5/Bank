@@ -10,7 +10,7 @@
     <table id="tableID" align="center" border="1px">
         <thead>
         <tr>
-            <th &lt;%&ndash;style="display: none"&ndash;%&gt; scope="col">id</th>
+            <th style="display: none" scope="col">id</th>
             <th scope="col">enterance</th>
             <th scope="col">exit</th>
             <th scope="col">user</th>
