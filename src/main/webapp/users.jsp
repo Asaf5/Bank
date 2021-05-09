@@ -57,7 +57,7 @@
             </c:forEach>
             <tbody/>
         </table>
-        <form name="reportForm" method="get" action="/mainServlet" style="text-align: center" >
+        <form name="reportForm" id="reportForm" method="get" action="/mainServlet" style="text-align: center" >
             <input name="act" id="act" type="hidden" value="report"/> <br/>
             <input type="button" onclick="report('view');" value="View All Reports"/>
             <input type="button" onclick="report('enter');" value="report Entrance"/>

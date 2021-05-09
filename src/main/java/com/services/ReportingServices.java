@@ -5,6 +5,7 @@ import com.beans.WorkingHour;
 import com.db.Dbfactory;
 import org.apache.log4j.Logger;
 
+import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -51,17 +52,20 @@ public class ReportingServices {
         return date;
     }
 
-    public static boolean cardStamping(User user) throws SQLException {
+
+
+
+    public static boolean cardStamping(User user, String action) throws SQLException {
         boolean isCardStampedOK = true;
         Connection con = Dbfactory.getConnection();
-        try
+         try
         {
             Statement st = con.createStatement();
             String sql = ("INSERT INTO reporting_system.work_hours VALUES ( ? , ? , ? , ? ); ");
             PreparedStatement preparedStmt = con.prepareStatement(sql);
             preparedStmt.setString (1, user.getId());
-            preparedStmt.setDate (2, getCurrentTimeStamp());
-            preparedStmt.setDate   (3, null);
+            preparedStmt.setDate (2, "enter".equals(action) ?  getCurrentTimeStamp() : null);//entrance field
+            preparedStmt.setDate   (3, "exit".equals(action) ? getCurrentTimeStamp()  : null );//exit field
             preparedStmt.setString(4, user.getFullName());
             preparedStmt.execute();
         }

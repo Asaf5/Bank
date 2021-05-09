@@ -69,10 +69,10 @@ public class MainServlet  extends HttpServlet {
                 UsersDisplay(request, response);
             } else if ("loadUsers".equals(action)) {
                 UsersJSONDisplay(request, response);
-            } else if ("report".equals(action)) {
-                report(request, response);
-            } else if ("cardStamping".equals(action)) {
+            } else if ( "enter".equals(action) || "exit".equals(action)) {
                 cardStamping(request, response);
+            } else if ("view".equals(action)) {
+                viewAllReports(request, response);
             } else {
                 UsersDisplay(request, response);
             }
@@ -93,7 +93,8 @@ public class MainServlet  extends HttpServlet {
         response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
         User user = (User) session.getAttribute("user");
-        boolean isCardStampOK = ReportingServices.cardStamping(user);
+        String action = request.getParameter("act");
+        boolean isCardStampOK = ReportingServices.cardStamping(user,action);
         List<WorkingHour> list = ReportingServices.fetchAllWorkingHours();
         Gson gson = new Gson();
         String listAsJSON = gson.toJson(list);
@@ -104,7 +105,7 @@ public class MainServlet  extends HttpServlet {
 
     }
 
-    private void report(HttpServletRequest request, HttpServletResponse response) throws SQLException {
+    private void viewAllReports(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         try {
             logger.info("MainServlet.report : " );
             response.setContentType("text/plain");

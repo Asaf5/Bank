@@ -87,5 +87,6 @@ function deleteUser(userId) {
 function report(Sign){
    // console.log("report function... param is: "Sign);
     document.getElementById('act').value=Sign;
+    document.getElementById('reportForm').submit();
 }
 
