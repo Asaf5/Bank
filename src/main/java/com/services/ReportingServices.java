@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+
 public class ReportingServices {
 
     static Logger logger = Logger.getRootLogger();
@@ -44,12 +45,10 @@ public class ReportingServices {
     }
 
 
-    private static Date getCurrentTimeStamp()
+    private static Timestamp getCurrentTimeStamp()
     {
-        Calendar calendar = Calendar.getInstance();
-        Date currentDate = (Date) calendar.getTime();
-        Date date = new java.sql.Date(currentDate.getTime());
-        return date;
+        Timestamp timestamp = new Timestamp(System.currentTimeMillis());
+        return timestamp;
     }
 
 
@@ -63,9 +62,9 @@ public class ReportingServices {
             Statement st = con.createStatement();
             String sql = ("INSERT INTO reporting_system.work_hours VALUES ( ? , ? , ? , ? ); ");
             PreparedStatement preparedStmt = con.prepareStatement(sql);
-            preparedStmt.setString (1, user.getId());
-            preparedStmt.setDate (2, "enter".equals(action) ?  getCurrentTimeStamp() : null);//entrance field
-            preparedStmt.setDate   (3, "exit".equals(action) ? getCurrentTimeStamp()  : null );//exit field
+            preparedStmt.setString (1, null);
+            preparedStmt.setTimestamp (2, "enter".equals(action) ?  getCurrentTimeStamp() : null);//entrance field
+            preparedStmt.setTimestamp   (3, "exit".equals(action) ? getCurrentTimeStamp()  : null );//exit field
             preparedStmt.setString(4, user.getFullName());
             preparedStmt.execute();
         }

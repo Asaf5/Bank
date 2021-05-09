@@ -74,7 +74,7 @@ public class MainServlet  extends HttpServlet {
             } else if ("view".equals(action)) {
                 viewAllReports(request, response);
             } else {
-                UsersDisplay(request, response);
+                Login(request, response);
             }
         } catch ( SQLException | ServletException e) {
             e.printStackTrace();
@@ -92,7 +92,7 @@ public class MainServlet  extends HttpServlet {
 
         response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("currentUser");
         String action = request.getParameter("act");
         boolean isCardStampOK = ReportingServices.cardStamping(user,action);
         List<WorkingHour> list = ReportingServices.fetchAllWorkingHours();
