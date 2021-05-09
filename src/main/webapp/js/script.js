@@ -2,6 +2,7 @@ $(document).ready(function () {
 });
 
 function loadUsers() {
+    //console.log("loadUsers function... param is: " + json);
     $.ajax({
         type: 'POST',
         data: {
@@ -16,6 +17,7 @@ function loadUsers() {
 
 
 function jsonToTable(json) {
+    //console.log("jsonToTable function... param is: " + json);
     var parsejson = JSON.parse(json);
     var columns = [];
     var tablethead = "<thead><tr>";
@@ -62,9 +64,8 @@ function jsonToTable(json) {
 
 
 /*
-
-
 function deleteUser(userId) {
+ //console.log("deleteUser... param is: " + userId);
 	//refreshPage();
 	 	 	$.ajax({
 			url : '/MainServlet',
@@ -79,8 +80,12 @@ function deleteUser(userId) {
 				alert("success delete user");
 			}
 		});
+}
+*/
 
+
+function report(Sign){
+   // console.log("report function... param is: "Sign);
+    document.getElementById('act').value=Sign;
 }
 
-
-*/
