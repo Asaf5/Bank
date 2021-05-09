@@ -62,7 +62,7 @@ public class ReportingServices {
             Statement st = con.createStatement();
             String sql = ("INSERT INTO reporting_system.work_hours VALUES ( ? , ? , ? , ? ); ");
             PreparedStatement preparedStmt = con.prepareStatement(sql);
-            preparedStmt.setString (1, null);
+            preparedStmt.setInt(1, 0);
             preparedStmt.setTimestamp (2, "enter".equals(action) ?  getCurrentTimeStamp() : null);//entrance field
             preparedStmt.setTimestamp   (3, "exit".equals(action) ? getCurrentTimeStamp()  : null );//exit field
             preparedStmt.setString(4, user.getFullName());
