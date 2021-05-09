@@ -3,7 +3,10 @@ drop database reporting_system;
 
 CREATE DATABASE `reporting_system` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
+
 use reporting_system;
+
+SELECT now();
 
 CREATE TABLE `users` (
   `id` varchar(100) not NULL PRIMARY KEY ,
@@ -13,12 +16,12 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-CREATE TABLE `work_hours` (
-  `id`  varchar(100) not NULL PRIMARY KEY,
-  `enterance` datetime DEFAULT NULL,
-  `exit` datetime DEFAULT NULL,
+CREATE TABLE work_hours (
+  `id` INT not NULL PRIMARY KEY AUTO_INCREMENT,
+  `enter` timestamp DEFAULT NULL,
+  `exit` timestamp DEFAULT NULL,
   `user` varchar(45) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+ ) AUTO_INCREMENT=1 ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
 
@@ -31,11 +34,11 @@ insert into users values(3,'adi arviv' , '3', 'adi.arviv@gmail.com');
 select * from users;
 
 
-INSERT INTO `reporting_system`.`work_hours` VALUES ( '1', now()  , now() , 'asaf' );
+INSERT INTO `reporting_system`.`work_hours` VALUES ( 0,  now()  , now() , 'asaf' );
 
-INSERT INTO `reporting_system`.`work_hours` VALUES ( '2', now()  , now() , 'mordechai1' );
+INSERT INTO `reporting_system`.`work_hours` VALUES (0, now()  , now() , 'mordechai1' );
 
-INSERT INTO `reporting_system`.`work_hours` VALUES ( '3', now()  , now() , 'asaf' );
+INSERT INTO `reporting_system`.`work_hours` VALUES ( 0,now()  , now() , 'asaf' );
 
 SELECT * FROM reporting_system.work_hours;
 
@@ -52,8 +55,8 @@ SELECT * FROM reporting_system.work_hours;
 
 
 /*DELETE from USERS WHERE password = 2 ; */
-
-
+  
+  
 use reporting_system;
 commit;
-
+     
