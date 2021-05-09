@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.List;
 import org.apache.log4j.Logger;
 
-
+@WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class MainServlet  extends HttpServlet {
 
     static Logger logger = null;
