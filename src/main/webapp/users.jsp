@@ -59,7 +59,7 @@
         </table>
         <form name="reportForm" method="get" action="/mainServlet" style="text-align: center" >
             <input name="act" id="act" type="hidden" value="report"/> <br/>
-            <input type="button" onclick="report('view');" value="see all Reports"/>
+            <input type="button" onclick="report('view');" value="View All Reports"/>
             <input type="button" onclick="report('enter');" value="report Entrance"/>
             <input type="button" onclick="report('exit');" value="report Exit"/>
         </form>
