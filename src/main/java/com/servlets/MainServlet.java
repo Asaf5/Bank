@@ -19,7 +19,7 @@ import java.sql.SQLException;
 import java.util.List;
 import org.apache.log4j.Logger;
 
-@WebServlet(name = "helloServlet", value = "/hello-servlet")
+@WebServlet(name = "mainServlet", value = "/mainServlet")
 public class MainServlet  extends HttpServlet {
 
     static Logger logger = null;
@@ -116,7 +116,7 @@ public class MainServlet  extends HttpServlet {
             //request.setAttribute("reports", listAsJSON);
             request.setAttribute("reports", list);
             out.println(list);
-            RequestDispatcher dispatcher = request.getRequestDispatcher("report.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("reports.jsp");
             dispatcher.forward(request, response);
         } catch (Exception e) {
             logger.error(e.getMessage());
