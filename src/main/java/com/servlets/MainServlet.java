@@ -100,7 +100,7 @@ public class MainServlet  extends HttpServlet {
         String listAsJSON = gson.toJson(list);
         request.setAttribute("reports", list);
         out.println(list);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("report.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("reports.jsp");
         dispatcher.forward(request, response);
 
     }

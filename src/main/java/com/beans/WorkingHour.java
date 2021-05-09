@@ -1,35 +1,36 @@
 package com.beans;
 
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class WorkingHour {
 
 
-    private String identity;
-    private Date enterance;
-    private Date exit;
+    private int identity;
+    private Timestamp enterance;
+    private Timestamp exit;
     private String user;
 
     public WorkingHour() {
     }
 
-    public WorkingHour(String id, Date enterance, Date exit, String user) {
+    public WorkingHour(int id, Timestamp enterance, Timestamp exit, String user) {
         this.identity = id;
         this.enterance = enterance;
         this.exit = exit;
         this.user = user;
     }
 
-    public void setIdentity(String identity) {
+    public void setIdentity(int identity) {
         this.identity = identity;
     }
 
-    public void setEnterance(Date enterance) {
+    public void setEnterance(Timestamp enterance) {
         this.enterance = enterance;
     }
 
-    public void setExit(Date exit) {
+    public void setExit(Timestamp exit) {
         this.exit = exit;
     }
 
@@ -37,7 +38,7 @@ public class WorkingHour {
         this.user = user;
     }
 
-    public String getIdentity() {
+    public int getIdentity() {
         return identity;
     }
 

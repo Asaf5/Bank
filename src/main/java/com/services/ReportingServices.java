@@ -110,9 +110,9 @@ public class ReportingServices {
             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
                 WorkingHour bean = new WorkingHour();
-                bean.setIdentity(rs.getString("id"));
-                bean.setEnterance(rs.getDate("enterance"));
-                bean.setExit(rs.getDate("exit"));
+                bean.setIdentity(rs.getInt("id"));
+                bean.setEnterance(rs.getTimestamp("enter"));
+                bean.setExit(rs.getTimestamp("exit"));
                 bean.setUser(rs.getString("user"));
                 list.add(bean);
             }
@@ -165,7 +165,7 @@ public class ReportingServices {
             preparedStmt.setDate (1, (Date) bean.getEnterance());
             preparedStmt.setDate   (2, (Date) bean.getExit());
             preparedStmt.setString(3, bean.getUser());
-            preparedStmt.setString (4, bean.getIdentity());
+            preparedStmt.setInt (4, bean.getIdentity());
             preparedStmt.execute();
         }
         catch(Exception e)

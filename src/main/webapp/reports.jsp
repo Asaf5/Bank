@@ -17,9 +17,11 @@
         </tr>
         </thead>
         <tbody>
+
         <c:forEach items="${reports}" var="report"  varStatus="counter">
         <tr>
-            <td &lt;%&ndash;style="display:none;"&ndash;%&gt;> <c:out value="${report.identity}"/> </td>
+
+             <td> <c:out value="${report.identity}"/> </td>
             <td> <c:out value="${report.enterance}"/></td>
             <td> <c:out value="${report.exit}"/></td>
             <td> <c:out value="${report.user}"/></td>
