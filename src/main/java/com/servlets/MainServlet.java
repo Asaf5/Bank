@@ -184,9 +184,7 @@ public class MainServlet extends HttpServlet {
         logger.info("MainServlet.Login : ");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-        if (email == null && password == null) {
 
-        }
         LoginDao loginDao = new LoginDao();
         User user = new User();
         user.setPassword(password);
