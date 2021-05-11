@@ -93,7 +93,7 @@ public class MainServlet extends HttpServlet {
         User user = (User) session.getAttribute("currentUser");
         String action = request.getParameter("act");
         boolean isCardStampOK = ReportingServices.cardStamping(user, action);
-        List<WorkingHour> list = ReportingServices.fetchAllWorkingHours();
+        List<WorkingHour> list = ReportingServices.fetchAllWorkingHoursByUser(user);
         Gson gson = new Gson();
         String listAsJSON = gson.toJson(list);
         request.setAttribute("reports", list);
@@ -108,7 +108,9 @@ public class MainServlet extends HttpServlet {
             logger.info("MainServlet.report : ");
             response.setContentType("text/plain");
             PrintWriter out = response.getWriter();
-            List<WorkingHour> list = ReportingServices.fetchAllWorkingHours();
+            HttpSession session = request.getSession();
+            User user = (User)session.getAttribute("currentUser");
+            List<WorkingHour> list = ReportingServices.fetchAllWorkingHoursByUser(user);
             //Gson gson = new Gson();
             //String listAsJSON = gson.toJson(list);
             //System.out.println(listAsJSON);

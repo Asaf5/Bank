@@ -100,21 +100,25 @@ public class ReportingServices {
         return false;
     }
 
-    public static List<WorkingHour> fetchAllWorkingHours() throws SQLException {
+    public static List<WorkingHour> fetchAllWorkingHoursByUser(User user) throws SQLException {
         Connection con = Dbfactory.getConnection();
         List<WorkingHour> list = new ArrayList<WorkingHour>();
         try
         {
             Statement st = con.createStatement();
             String sql = (" SELECT * FROM reporting_system.work_hours ;");
-            ResultSet rs = st.executeQuery(sql);
+             ResultSet rs = st.executeQuery(sql);
             while(rs.next()) {
-                WorkingHour bean = new WorkingHour();
-                bean.setIdentity(rs.getInt("id"));
-                bean.setEnterance(rs.getTimestamp("enter"));
-                bean.setExit(rs.getTimestamp("exit"));
-                bean.setUser(rs.getString("user"));
-                list.add(bean);
+                String userName = (String)rs.getString("user");
+                if(user.getFullName().contains(userName))
+                {
+                    WorkingHour bean = new WorkingHour();
+                    bean.setIdentity(rs.getInt("id"));
+                    bean.setEnterance(rs.getTimestamp("enter"));
+                    bean.setExit(rs.getTimestamp("exit"));
+                    bean.setUser(rs.getString("user"));
+                    list.add(bean);
+                }
             }
         }
         catch(Exception e)
