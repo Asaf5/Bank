@@ -29,7 +29,7 @@ public class MainServlet extends HttpServlet {
     @Override
     public void init() {
         logger = Logger.getRootLogger();
-        logger.debug(" MainServlet.init Servlet... : ");
+        logger.debug(" MainServlet.init Servlet.1111111111.. : ");
     }
 
 
