@@ -57,7 +57,7 @@ public class MainServlet extends HttpServlet {
         logger.info(" MainServlet.doGet : ");
         String action = request.getParameter("act");
         logger.info("MainServlet.doGet : " + "action is : " + action);
-
+        String a ="sss";
         try {
             if ("login".equals(action)) {
                 Login(request, response);
