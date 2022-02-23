@@ -59,7 +59,10 @@ public class MainServlet extends HttpServlet {
         logger.info("MainServlet.doGet : " + "action is : " + action);
 
         try {
-            if ("login".equals(action)) {
+            if ("register".equals(action)) {
+                Register(request, response);
+                UsersDisplay(request, response);
+            } else if ("login".equals(action)) {
                 Login(request, response);
             } else if ("DeleteUser".equals(action)) {
                 DeleteUser(request, response);
