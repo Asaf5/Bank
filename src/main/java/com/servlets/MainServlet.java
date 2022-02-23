@@ -41,7 +41,7 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        logger.info("INFO - MainServlet.service : ");
+        //logger.info("INFO - MainServlet.service : ");
         logger.debug("DEBUG - MainServlet.service : ");
         doGet(request, response);
     }
