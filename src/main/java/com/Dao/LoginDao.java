@@ -39,6 +39,7 @@ public class LoginDao {
         }catch(Exception e){
             logger.error(e.getMessage());
             e.printStackTrace();
+            e.printStackTrace();
         }
         return user1 ;
     }
