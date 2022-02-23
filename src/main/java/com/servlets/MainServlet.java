@@ -61,7 +61,6 @@ public class MainServlet extends HttpServlet {
         try {
             if ("register".equals(action)) {
                 Register(request, response);
-                UsersDisplay(request, response);
             } else if ("login".equals(action)) {
                 Login(request, response);
             } else if ("DeleteUser".equals(action)) {
