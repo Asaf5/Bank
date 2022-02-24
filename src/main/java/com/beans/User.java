@@ -6,7 +6,7 @@ public class User {
     private String email;
     private String password;
     private String fullName;
-    private String fdsfsf;
+    private String fdsffsf;
     private String fdsfds;
 
     public User() {
