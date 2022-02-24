@@ -11,6 +11,10 @@ public class WorkingHour {
     private Timestamp enterance;
     private Timestamp exit;
     private String user;
+    private String user22;
+
+
+
 
     public WorkingHour() {
     }
