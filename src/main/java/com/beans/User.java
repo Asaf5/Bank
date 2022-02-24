@@ -6,8 +6,8 @@ public class User {
     private String email;
     private String password;
     private String fullName;
-    private String fullName1;
-    private String fullNa22me1;
+    private String fdsfsf;
+    private String fdsfds;
 
     public User() {
     }

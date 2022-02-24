@@ -8,7 +8,7 @@ public class WorkingHour {
 
 
     private int identity;
-    private Timestamp enterance;
+    private Timestamp entrance;
     private Timestamp exit;
     private String user;
     private String user22;
@@ -23,7 +23,7 @@ public class WorkingHour {
 
     public WorkingHour(int id, Timestamp enterance, Timestamp exit, String user) {
         this.identity = id;
-        this.enterance = enterance;
+        this.entrance = enterance;
         this.exit = exit;
         this.user = user;
     }
@@ -32,8 +32,8 @@ public class WorkingHour {
         this.identity = identity;
     }
 
-    public void setEnterance(Timestamp enterance) {
-        this.enterance = enterance;
+    public void setEntrance(Timestamp entrance) {
+        this.entrance = entrance;
     }
 
     public void setExit(Timestamp exit) {
@@ -48,8 +48,8 @@ public class WorkingHour {
         return identity;
     }
 
-    public Date getEnterance() {
-        return enterance;
+    public Date getEntrance() {
+        return entrance;
     }
 
     public Date getExit() {

@@ -5,10 +5,8 @@ import com.beans.WorkingHour;
 import com.db.Dbfactory;
 import org.apache.log4j.Logger;
 
-import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 
@@ -114,7 +112,7 @@ public class ReportingServices {
                 {
                     WorkingHour bean = new WorkingHour();
                     bean.setIdentity(rs.getInt("id"));
-                    bean.setEnterance(rs.getTimestamp("enter"));
+                    bean.setEntrance(rs.getTimestamp("enter"));
                     bean.setExit(rs.getTimestamp("exit"));
                     bean.setUser(rs.getString("user"));
                     list.add(bean);
@@ -166,7 +164,7 @@ public class ReportingServices {
             Statement st = con.createStatement();
             String sql = ("UPDATE REPORTING_SYSTEM.WORK_HOURS SET entrance = ? ,exit = ? , user = ?  where id = ?");
             PreparedStatement preparedStmt = con.prepareStatement(sql);
-            preparedStmt.setDate (1, (Date) bean.getEnterance());
+            preparedStmt.setDate (1, (Date) bean.getEntrance());
             preparedStmt.setDate   (2, (Date) bean.getExit());
             preparedStmt.setString(3, bean.getUser());
             preparedStmt.setInt (4, bean.getIdentity());
