@@ -7,7 +7,7 @@ public class User {
     private String password;
     private String fullName;
     private String fullName1;
-
+    private String fullNa22me1;
 
     public User() {
     }
